@@ -17,13 +17,25 @@
                         </div>
                         
                         <pv:menu>
-                            <p:menuitem id="pm_dashboard" value="Inicio" icon="fa fa-home" outcome="/dashboard" />
+                            <p:menuitem id="pm_dashboard" value="Inicio" icon="fa fa-home" outcome="/dashboard"/>
                             <p:submenu id="pm_produccion" label="Gestión de la  producción" icon="fa fa-cog">
-                                <p:menuitem id="pm_static_menu" value="Static Menu" icon="fa fa-bars" actionListener="#{guestPreferences.setOverlayMenu(false)}" ajax="false"/>
-                                <p:menuitem id="pm_overlay_menu" value="Overlay Menu" icon="fa fa-bars" actionListener="#{guestPreferences.setOverlayMenu(true)}" ajax="false"/>
-                                <p:menuitem id="pm_slim_menu" value="Slim Menu" icon="fa fa-bars" actionListener="#{guestPreferences.setSlimMenu(true)}" ajax="false"/>
-                                <p:menuitem id="pm_light_menu" value="Light Menu" icon="fa fa-sun-o" actionListener="#{guestPreferences.setDarkMenu(false)}" ajax="false"/>
-                                <p:menuitem id="pm_dark_menu" value="Dark Menu" icon="fa fa-moon-o" actionListener="#{guestPreferences.setDarkMenu(true)}" ajax="false"/>
+                                <p:submenu id="pm_inventario_menu" label="Inventario" icon="fa fa-barcode">
+                                    <p:submenu id="pm_control_inven" label="Control de Inventario" icon="fa fa-cog"> 
+                                        <p:menuitem id="pm_existencias" value="Existencias" icon="fa fa-thermometer-empty" actionListener="#{guestPreferences.setOverlayMenu(true)}" ajax="false"/>
+                                        <p:menuitem id="pm_pedidos" value="Pedidos" icon="fa fa-check-square-o" actionListener="#{guestPreferences.setOverlayMenu(true)}" ajax="false"/>
+                                        <p:menuitem id="pm_traslados" value="Traslados" icon="fa fa-sign-out" actionListener="#{guestPreferences.setOverlayMenu(true)}" ajax="false"/>
+                                    </p:submenu>
+                                    <p:submenu id="pm_catalogos_inven" label="Catalogos" icon="fa fa-window-restore"> 
+                                        <p:menuitem id="pm_cat_bodegas" value="Bodegas" icon="fa fa-cubes" actionListener="#{guestPreferences.setSlimMenu(true)}" ajax="false"/>
+                                        <p:menuitem id="pm_cat_proveedores" value="Proveedores" icon="fa fa-address-book" actionListener="#{guestPreferences.setSlimMenu(true)}" ajax="false"/>
+                                        <p:menuitem id="pm_cat_articulos" value="Articulos" icon="fa fa-paperclip" actionListener="#{guestPreferences.setSlimMenu(true)}" ajax="false"/>
+                                        <p:menuitem id="pm_cat_unidades" value="Unidades de Medida" icon="fa fa-puzzle-piece" actionListener="#{guestPreferences.setSlimMenu(true)}" ajax="false"/>
+                                        
+                                    </p:submenu>
+                                    <p:submenu id="pm_reportes_inven" label="Reportes" icon="fa fa-print"> 
+                                        <p:menuitem id="pm_light_menu" value="Light Menu" icon="fa fa-sun-o" actionListener="#{guestPreferences.setDarkMenu(false)}" ajax="false"/>
+                                    </p:submenu>
+                                </p:submenu>
                             </p:submenu>
                             <p:submenu id="pm_ventas" label="Ordenes y Ventas" icon="fa fa-briefcase">
                                 <p:submenu id="pm_layout_colors_flat" label="Flat" icon="fa fa-circle">
